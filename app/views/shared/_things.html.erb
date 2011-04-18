@@ -1,0 +1,10 @@
+<ul>
+  <% @things.each do |thing| %>
+    <li>
+      <%= thing.name %>
+      <% if can? :manage, :all %>
+        <%= " by #{thing.user.email}" %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

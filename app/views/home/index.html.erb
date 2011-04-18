@@ -1,0 +1,10 @@
+<h1>Look at your stuff!</h1>
+<% if can? :create, Thing %>
+  <%= link_to "Create a new thing", new_thing_path %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= render :partial => "shared/things", :locals => {:things => @things} %>
+<% else %>
+  <p>Oops! Looks like you aren't signed in. Create an account to see your stuff!</p>
+<% end %>
